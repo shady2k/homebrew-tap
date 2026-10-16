@@ -11,7 +11,7 @@
 class Madarch < Formula
   desc "The madarch command as one release binary: products, wiki, upgrade"
   homepage "https://github.com/shady2k/madarch"
-  version "0.1.0"
+  version "0.1.1"
 
   artifact = if OS.mac? && Hardware::CPU.arm?
     "madarch-darwin-arm64"
@@ -24,10 +24,10 @@ class Madarch < Formula
   end
   url "https://github.com/shady2k/madarch/releases/download/v#{version}/#{artifact}"
   checksum = case artifact
-  when "madarch-darwin-arm64" then "5170d46be7967c3bfc1b8a8e6aee5098df227b08d7af7a9c034e9734a6e38bdb"
-  when "madarch-darwin-x64" then "998b1c8b625547228ad96b9d98173cd782177314dcb418abff14d11934a1bc09"
-  when "madarch-linux-arm64" then "7896221a8d72f5aff796ddc374fe732bcd04c088a087ff4e2ff76612df7d8d39"
-  else "9f084f23cb2fde1497b68b6f5cd1685f3977140a39461fb6a30302b8e76dd1a8"
+  when "madarch-darwin-arm64" then "0a6045536ba350519e86b79638d9b9ce278ae76c6adb8b1ab27e087e19e806d9"
+  when "madarch-darwin-x64" then "8f39b62f101312ea5aa122b361be9d89353434fd4acfbb9d7f4b57b251671318"
+  when "madarch-linux-arm64" then "6533109d3c070256a5c29fe40a43a632782cbb4df845b0dfb070151092c28f7f"
+  else "a84978c6785a1101976438007420bbc874ee8b6f3d4bd313d41756db731253ec"
   end
   sha256 checksum
 
@@ -45,7 +45,7 @@ class Madarch < Formula
     end
     libexec.install artifact => "madarch-bin"
     (libexec / "madarch-bin").chmod 0755
-    (bin / "madarch").write_exec_script libexec / "madarch-bin"
+    bin.install_symlink libexec / "madarch-bin" => "madarch"
   end
 
   test do

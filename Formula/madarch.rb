@@ -11,7 +11,7 @@
 class Madarch < Formula
   desc "The madarch command as one release binary: products, wiki, upgrade"
   homepage "https://github.com/shady2k/madarch"
-  version "0.1.1"
+  version "0.2.2"
 
   artifact = if OS.mac? && Hardware::CPU.arm?
     "madarch-darwin-arm64"
@@ -24,10 +24,10 @@ class Madarch < Formula
   end
   url "https://github.com/shady2k/madarch/releases/download/v#{version}/#{artifact}"
   checksum = case artifact
-  when "madarch-darwin-arm64" then "0a6045536ba350519e86b79638d9b9ce278ae76c6adb8b1ab27e087e19e806d9"
-  when "madarch-darwin-x64" then "8f39b62f101312ea5aa122b361be9d89353434fd4acfbb9d7f4b57b251671318"
-  when "madarch-linux-arm64" then "6533109d3c070256a5c29fe40a43a632782cbb4df845b0dfb070151092c28f7f"
-  else "a84978c6785a1101976438007420bbc874ee8b6f3d4bd313d41756db731253ec"
+  when "madarch-darwin-arm64" then "7cd92e6310cbc7cba280b8b88811190eeac14ba18c1b4679182bc36a1634f65d"
+  when "madarch-darwin-x64" then "8afb9e91f21b9f4ff6ca87b397490864bffcb028dc3ee33283fd50dc755b7a24"
+  when "madarch-linux-arm64" then "2ae2d7f5d5610f448dd0d90ad19da91ddca283f169d779d7a341dfdb5ff8df2d"
+  else "53b85146beb3b35326976f4d010949c59bac39c192b1380a2b9875a240511c4d"
   end
   sha256 checksum
 
